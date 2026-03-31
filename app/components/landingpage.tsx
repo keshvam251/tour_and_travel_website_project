@@ -41,7 +41,7 @@ export default function Home() {
         
       
 
-<Link href="/components/booking.tsx">
+<Link href="/booking">
   <button className="group mt-8 sm:mt-10 inline-flex items-center gap-2 bg-white hover:bg-amber-400 text-gray-900 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 active:translate-y-0">
     Start your journey
     <svg 

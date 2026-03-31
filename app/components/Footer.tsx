@@ -8,7 +8,7 @@ export default function Footer() {
 
   const links = [
     { name: 'Home', href: '/' },
-    { name: 'Discover', href: '/discover' },
+    { name: 'Package', href: '/packages' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact Us', href: '/contact' },
@@ -66,15 +66,15 @@ export default function Footer() {
             <h4 className="text-amber-400 font-semibold mb-3">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="flex items-center gap-2">
-                📍 Kanyala, near Basant Gate, 15 Fed Dansal, Jammu
+                📍 main bazar katra jammu 
               </li>
               <li>
-                <a href="tel:788934250" className="flex items-center gap-2 hover:text-amber-400">
-                  📞 788934250
+                <a href="tel:96977 76463" className="flex items-center gap-2 hover:text-amber-400">
+                  📞 +91 96977 76463
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/91788934250" target="_blank"
+                <a href="https://wa.me/919697776463" target="_blank"
                   className="flex items-center gap-2 hover:text-green-400">
                   💬 WhatsApp Chat
                 </a>

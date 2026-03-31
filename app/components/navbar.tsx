@@ -67,6 +67,14 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-8 text-blackfont-medium">
            
             <Link
+              href="/packages"
+              className={`hover:text-black transition-colors duration-200 ${
+                pathname === "/packages" ? "text-amber-300" : ""
+              }`}
+            >
+              Packages
+            </Link>
+            <Link
               href="/review"
               className={`hover:text-black transition-colors duration-200 ${
                 pathname === "/reviews" ? "text-amber-300" : ""
@@ -186,6 +194,15 @@ const Navbar = () => {
               }`}
             >
               Discover
+            </Link>
+            <Link
+              href="/packages"
+              onClick={handleLinkClick}
+              className={`text-gray-700 hover:text-amber-600 text-lg font-medium py-2 transition-colors duration-200 ${
+                pathname === "/packages" ? "text-amber-600" : ""
+              }`}
+            >
+              Packages
             </Link>
             <Link
               href="/review"
