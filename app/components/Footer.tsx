@@ -36,10 +36,10 @@ export default function Footer() {
               <a href="#" className="w-9 h-9 bg-white/10 hover:bg-amber-500 rounded-full flex items-center justify-center transition">
                 <FaFacebook />
               </a>
-              <a href="#" className="w-9 h-9 bg-white/10 hover:bg-amber-500 rounded-full flex items-center justify-center transition">
+              <a href="http://instagram.com/kaavya_holiday_tour_travel_/?hl=en" className="w-9 h-9 bg-white/10 hover:bg-amber-500 rounded-full flex items-center justify-center transition">
                 <FaInstagram />
               </a>
-              <a href="https://wa.me/91788934250" target="_blank"
+              <a href="https://wa.me/919697776463" target="_blank"
                 className="w-9 h-9 bg-white/10 hover:bg-green-500 rounded-full flex items-center justify-center transition">
                 <FaWhatsapp />
               </a>

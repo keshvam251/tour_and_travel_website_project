@@ -49,16 +49,16 @@ export default function ContactPage() {
             <div className="flex items-start gap-3">
               <span className="text-xl">📍</span>
               <p className="text-gray-600">
-                Kanyala, near Basant Gate,<br />
-                15 Fed Dansal, Jammu
+                main bazar,<br />
+                katra,jammu
               </p>
             </div>
 
             {/* Phone */}
             <div className="flex items-center gap-3">
               <span className="text-xl">📞</span>
-              <a href="tel:788934250" className="text-gray-700 hover:text-amber-600">
-                788934250
+              <a href="tel:9697776463" className="text-gray-700 hover:text-amber-600">
+                9697776463
               </a>
             </div>
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-3">
               <span className="text-xl">💬</span>
               <a
-                href="https://wa.me/91788934250"
+                href="https://wa.me/919697776463"
                 target="_blank"
                 className="text-green-600 hover:underline"
               >
@@ -81,7 +81,7 @@ export default function ContactPage() {
                 href="mailto:atul@gmail.com"
                 className="text-gray-700 hover:text-amber-600"
               >
-                atul@gmail.com
+                atulsharma41782@gmail.com
               </a>
             </div>
 

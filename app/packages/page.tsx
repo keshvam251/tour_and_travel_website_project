@@ -78,6 +78,18 @@ export default function PackagesPage() {
     }
   };
 
+  const handleWhatsAppClick = (packageTitle?: string) => {
+    const phoneNumber = '9697776463';
+    let message = 'Hello! I am interested in booking a tour package.';
+    
+    if (packageTitle) {
+      message = `Hello! I am interested in booking the "${packageTitle}" tour package. Could you please provide more details?`;
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+  };
+
   const categories = ['All', ...Array.from(new Set(packages.map(p => p.category)))];
   const filteredPackages = selectedCategory === 'All' ? packages : packages.filter(p => p.category === selectedCategory);
   const featuredPackages = packages.filter(p => p.featured);
@@ -247,11 +259,12 @@ export default function PackagesPage() {
                     </div>
 
                     <div className="flex gap-3">
-                      <Link href="/contact" className="flex-1">
-                        <button className="w-full bg-white text-amber-600 font-bold py-3 rounded-xl hover:bg-amber-50 transition-all shadow-lg text-sm">
-                          Book Now →
-                        </button>
-                      </Link>
+                      <button
+                        onClick={() => handleWhatsAppClick(pkg.title)}
+                        className="flex-1 bg-white text-amber-600 font-bold py-3 rounded-xl hover:bg-amber-50 transition-all shadow-lg text-sm"
+                      >
+                        Book Now on WhatsApp →
+                      </button>
                       <button
                         onClick={() => setExpandedPackage(expandedPackage === pkg.id ? null : pkg.id)}
                         className="bg-white/20 backdrop-blur-sm text-white font-medium py-3 px-4 rounded-xl hover:bg-white/30 transition-all text-sm"
@@ -398,11 +411,16 @@ export default function PackagesPage() {
                       >
                         {expandedPackage === pkg.id ? 'Show Less ↑' : 'View Details ↓'}
                       </button>
-                      <Link href="/contact" className="block">
-                        <button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl transition-all shadow-md hover:shadow-lg text-sm">
-                          📞 Book This Package
-                        </button>
-                      </Link>
+                      <button
+                        onClick={() => handleWhatsAppClick(pkg.title)}
+                        className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-xl transition-all shadow-md hover:shadow-lg text-sm flex items-center justify-center gap-2"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.725 3.891 1.746 5.321l-.996 3.702 3.739-1.722z"/>
+                          <path d="M17.394 14.706c-.204-.307-.768-.482-1.092-.595-.324-.113-.846-.376-1.158-.426-.312-.05-.558.038-.768.307-.281.33-.505.548-.708.667-.203.119-.407.125-.746-.036-.339-.161-1.139-.441-2.165-1.342-.801-.704-1.341-1.572-1.498-1.839-.157-.266-.017-.41.118-.543.122-.12.271-.313.407-.469.136-.156.181-.267.272-.445.09-.178.045-.334-.023-.468-.068-.134-.602-1.424-.826-1.95-.217-.511-.438-.441-.603-.449-.159-.008-.341-.01-.523-.01-.182 0-.478.068-.728.34-.25.273-.954.916-.954 2.234 0 1.318.976 2.592 1.112 2.771.136.179 1.913 2.863 4.656 3.888.65.243 1.158.388 1.554.497.653.174 1.247.149 1.717.091.524-.066 1.614-.647 1.842-1.272.228-.625.228-1.16.159-1.271-.068-.111-.25-.179-.455-.285z"/>
+                        </svg>
+                        Book on WhatsApp
+                      </button>
                     </div>
                   </motion.div>
                 ))}
@@ -493,24 +511,16 @@ export default function PackagesPage() {
             Contact <strong>Kavya Holiday Tour and Travel</strong> today to check availability and book your personalized tour package!
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
-            <a href="tel:+919697776463" className="bg-white text-amber-600 font-bold px-6 py-3 rounded-full hover:bg-amber-50 transition-all shadow-lg text-sm flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            <button
+              onClick={() => handleWhatsAppClick()}
+              className="bg-white text-amber-600 font-bold px-6 py-3 rounded-full hover:bg-amber-50 transition-all shadow-lg text-sm flex items-center gap-2"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.725 3.891 1.746 5.321l-.996 3.702 3.739-1.722z"/>
+                <path d="M17.394 14.706c-.204-.307-.768-.482-1.092-.595-.324-.113-.846-.376-1.158-.426-.312-.05-.558.038-.768.307-.281.33-.505.548-.708.667-.203.119-.407.125-.746-.036-.339-.161-1.139-.441-2.165-1.342-.801-.704-1.341-1.572-1.498-1.839-.157-.266-.017-.41.118-.543.122-.12.271-.313.407-.469.136-.156.181-.267.272-.445.09-.178.045-.334-.023-.468-.068-.134-.602-1.424-.826-1.95-.217-.511-.438-.441-.603-.449-.159-.008-.341-.01-.523-.01-.182 0-.478.068-.728.34-.25.273-.954.916-.954 2.234 0 1.318.976 2.592 1.112 2.771.136.179 1.913 2.863 4.656 3.888.65.243 1.158.388 1.554.497.653.174 1.247.149 1.717.091.524-.066 1.614-.647 1.842-1.272.228-.625.228-1.16.159-1.271-.068-.111-.25-.179-.455-.285z"/>
               </svg>
-              9697776463
-            </a>
-            <a href="tel:+919858078070" className="bg-white/20 backdrop-blur-sm text-white font-bold px-6 py-3 rounded-full hover:bg-white/30 transition-all text-sm flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              9858078070
-            </a>
-            <a href="tel:+918899146348" className="bg-white/20 backdrop-blur-sm text-white font-bold px-6 py-3 rounded-full hover:bg-white/30 transition-all text-sm flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              8899146348
-            </a>
+              Chat on WhatsApp
+            </button>
           </div>
           <p className="text-white/50 text-xs">*Price subject to change. Terms and conditions apply.</p>
         </motion.div>

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,22 +51,30 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={` text-amber-500 fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
+        className={`text-amber-500 fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } bg-transparent px-6 md:px-12 py-4`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo with Image */}
           <Link
             href="/"
-            className="text-amber-500 text-2xl md:text-3xl font-semibold tracking-wide hover:text-amber-300 transition-colors duration-200 drop-shadow-lg"
+            className="flex items-center space-x-2 hover:opacity-80 transition-opacity duration-200"
           >
-            kt&t
+            <div className="relative w-10 h-10 md:w-12 md:h-12">
+              <Image
+                src="/kaavya logo.png" // Replace with your actual logo path
+                alt="KT&T Logo"
+                fill
+                className="object-contain drop-shadow-lg"
+                priority
+              />
+            </div>
+            
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex space-x-8 text-blackfont-medium">
-           
+          <div className="hidden md:flex space-x-8 text-black font-medium">
             <Link
               href="/packages"
               className={`hover:text-black transition-colors duration-200 ${
@@ -150,11 +159,21 @@ const Navbar = () => {
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {/* Drawer Header */}
+          {/* Drawer Header with Logo */}
           <div className="flex items-center justify-between p-6 border-b border-amber-200">
-            <span className="text-amber-800 text-2xl font-semibold tracking-wide">
-              kt&t
-            </span>
+            <div className="flex items-center space-x-2">
+              <div className="relative w-8 h-8">
+                <Image
+                  src="/logo.png" // Replace with your actual logo path
+                  alt="KT&T Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-amber-800 text-2xl font-semibold tracking-wide">
+                kt&t
+              </span>
+            </div>
             <button
               onClick={() => setIsOpen(false)}
               className="text-amber-600 hover:text-amber-800 transition-colors"
@@ -186,15 +205,7 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <Link
-              href="/discover"
-              onClick={handleLinkClick}
-              className={`text-gray-700 hover:text-amber-600 text-lg font-medium py-2 transition-colors duration-200 ${
-                pathname === "/discover" ? "text-amber-600" : ""
-              }`}
-            >
-              Discover
-            </Link>
+            
             <Link
               href="/packages"
               onClick={handleLinkClick}
@@ -248,16 +259,16 @@ const Navbar = () => {
                 Contact Us
               </p>
               <a
-                href="tel:+919876543210"
+                href="tel:+919697776463"
                 className="text-gray-600 hover:text-amber-600 text-sm block mb-1 transition-colors"
               >
                 📞 +91 96977 76463
               </a>
               <a
-                href="mailto:atul@gmail.com"
+                href="mailto:atulsharma41782@gmail.com"
                 className="text-gray-600 hover:text-amber-600 text-sm block transition-colors"
               >
-                ✉️ atul@gmail.com
+                ✉️ atulsharma41782@gmail.com
               </a>
             </div>
 
