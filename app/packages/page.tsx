@@ -79,7 +79,7 @@ export default function PackagesPage() {
   };
 
   const handleWhatsAppClick = (packageTitle?: string) => {
-    const phoneNumber = '9697776463';
+    const phoneNumber = '919697776463';
     let message = 'Hello! I am interested in booking a tour package.';
     
     if (packageTitle) {

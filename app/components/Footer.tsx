@@ -85,7 +85,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-white/10 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
-          <span>© {currentYear} Kaavya Tour & Travel. All rights reserved.</span>
+          <span>© {currentYear} developed by:udyamsites </span>
           <span>Owner: Atul Sharma</span>
         </div>
       </div>
